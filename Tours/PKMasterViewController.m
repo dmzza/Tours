@@ -70,7 +70,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -188,7 +188,7 @@
             break;
             
         case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            [self configureCell:(PKCityCell *)[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
             
         case NSFetchedResultsChangeMove:
@@ -217,6 +217,8 @@
 {
     //NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.nameLabel.text = @"Portland";
+    cell.backgroundView.image = [UIImage imageNamed:@"portland.png"];
+    [cell setClipsToBounds:YES];
 }
 
 @end
