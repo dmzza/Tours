@@ -216,7 +216,8 @@
 - (void)configureCell:(PKCityCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     //NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.nameLabel.text = @"Portland";
+    cell.nameLabel.text = @"PORTLAND";
+    cell.stateLabel.text = @"OREGON";
     cell.backgroundView.image = [UIImage imageNamed:@"portland.png"];
     [cell setClipsToBounds:YES];
 }

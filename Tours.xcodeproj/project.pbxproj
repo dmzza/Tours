@@ -26,6 +26,7 @@
 		63891AC718DA73E200C075AB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63891AC518DA73E200C075AB /* InfoPlist.strings */; };
 		63891AC918DA73E200C075AB /* ToursTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63891AC818DA73E200C075AB /* ToursTests.m */; };
 		63C87EE318E3CF2600F56825 /* PKCityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C87EE218E3CF2600F56825 /* PKCityCell.m */; };
+		63C87EE518E3F1DC00F56825 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C87EE418E3F1DC00F56825 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		63891AC818DA73E200C075AB /* ToursTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToursTests.m; sourceTree = "<group>"; };
 		63C87EE118E3CF2600F56825 /* PKCityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKCityCell.h; sourceTree = "<group>"; };
 		63C87EE218E3CF2600F56825 /* PKCityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKCityCell.m; sourceTree = "<group>"; };
+		63C87EE418E3F1DC00F56825 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63C87EE518E3F1DC00F56825 /* MapKit.framework in Frameworks */,
 				63891A9718DA73E200C075AB /* CoreGraphics.framework in Frameworks */,
 				63891A9B18DA73E200C075AB /* CoreData.framework in Frameworks */,
 				63891A9918DA73E200C075AB /* UIKit.framework in Frameworks */,
@@ -114,6 +117,7 @@
 		63891A9318DA73E200C075AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				63C87EE418E3F1DC00F56825 /* MapKit.framework */,
 				63891A9418DA73E200C075AB /* Foundation.framework */,
 				63891A9618DA73E200C075AB /* CoreGraphics.framework */,
 				63891A9818DA73E200C075AB /* UIKit.framework */,
