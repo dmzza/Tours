@@ -27,6 +27,7 @@
 		63891AC918DA73E200C075AB /* ToursTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63891AC818DA73E200C075AB /* ToursTests.m */; };
 		63C87EE318E3CF2600F56825 /* PKCityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C87EE218E3CF2600F56825 /* PKCityCell.m */; };
 		63C87EE518E3F1DC00F56825 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C87EE418E3F1DC00F56825 /* MapKit.framework */; };
+		63C87EE818E3F35100F56825 /* PKTourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C87EE718E3F35100F56825 /* PKTourViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		63C87EE118E3CF2600F56825 /* PKCityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKCityCell.h; sourceTree = "<group>"; };
 		63C87EE218E3CF2600F56825 /* PKCityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKCityCell.m; sourceTree = "<group>"; };
 		63C87EE418E3F1DC00F56825 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		63C87EE618E3F35100F56825 /* PKTourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKTourViewController.h; sourceTree = "<group>"; };
+		63C87EE718E3F35100F56825 /* PKTourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKTourViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +145,8 @@
 				63891A9D18DA73E200C075AB /* Supporting Files */,
 				63C87EE118E3CF2600F56825 /* PKCityCell.h */,
 				63C87EE218E3CF2600F56825 /* PKCityCell.m */,
+				63C87EE618E3F35100F56825 /* PKTourViewController.h */,
+				63C87EE718E3F35100F56825 /* PKTourViewController.m */,
 			);
 			path = Tours;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63891AA318DA73E200C075AB /* main.m in Sources */,
+				63C87EE818E3F35100F56825 /* PKTourViewController.m in Sources */,
 				63891AB018DA73E200C075AB /* PKMasterViewController.m in Sources */,
 				63891AB318DA73E200C075AB /* PKDetailViewController.m in Sources */,
 				63C87EE318E3CF2600F56825 /* PKCityCell.m in Sources */,
