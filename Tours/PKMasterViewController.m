@@ -9,6 +9,7 @@
 #import "PKMasterViewController.h"
 
 #import "PKDetailViewController.h"
+#import "PKTourViewController.h"
 #import "PKCityCell.h"
 
 @interface PKMasterViewController ()
@@ -61,6 +62,19 @@
     }
 }
 
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"tourSegue"]) {
+        PKCityCell *senderCell = (PKCityCell *)sender;
+        
+        [(PKTourViewController *)segue.destinationViewController setTourName:senderCell.nameLabel.text];
+    }
+}
+
+
+
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -110,8 +124,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    self.detailViewController.detailItem = object;
+    
 }
 
 #pragma mark - Fetched results controller

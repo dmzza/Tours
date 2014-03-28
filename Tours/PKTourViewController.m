@@ -36,6 +36,7 @@
     [self.contentView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://jordanandalaina.exposure.so/hello-spring"]]];
     
     [[self.navBar topItem] setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self.parentViewController action:@selector(dismissModalViewControllerAnimated:) ]];
+    [[self.navBar topItem] setTitle:self.tourName];
 }
 
 - (void)didReceiveMemoryWarning

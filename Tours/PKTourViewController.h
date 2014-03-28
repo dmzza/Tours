@@ -15,4 +15,6 @@
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UIWebView *contentView;
 
+@property (strong, nonatomic) NSString *tourName;
+
 @end
