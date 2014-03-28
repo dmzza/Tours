@@ -16,5 +16,6 @@
 @property (strong, nonatomic) IBOutlet UIWebView *contentView;
 
 @property (strong, nonatomic) NSString *tourName;
+@property (strong, nonatomic) NSURL *contentURL;
 
 @end

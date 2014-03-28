@@ -68,8 +68,10 @@
 {
     if ([segue.identifier isEqualToString:@"tourSegue"]) {
         PKCityCell *senderCell = (PKCityCell *)sender;
+        PKTourViewController *destinationVC =(PKTourViewController *)segue.destinationViewController;
         
-        [(PKTourViewController *)segue.destinationViewController setTourName:senderCell.nameLabel.text];
+        [destinationVC setTourName:senderCell.nameLabel.text];
+        [destinationVC setContentURL:[NSURL URLWithString:@"https://dmzza.exposure.so/spanning-the-citi-bike-gap"]];
     }
 }
 
