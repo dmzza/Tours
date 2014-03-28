@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UIWebView *contentView;
+@property (strong, nonatomic) IBOutlet UIPanGestureRecognizer *dragRecognizer;
 
 @property (strong, nonatomic) NSString *tourName;
 @property (strong, nonatomic) NSURL *contentURL;
