@@ -11,6 +11,7 @@
 
 @interface PKTourViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UIWebView *contentView;
 

@@ -170,6 +170,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R7Y-Gz-Rvg">
+                                <rect key="frame" x="0.0" y="100" width="1024" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="20"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Title" id="IDZ-VQ-tAb"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -179,6 +189,7 @@
                     <connections>
                         <outlet property="contentView" destination="eBd-RH-9bs" id="bcH-9S-FVG"/>
                         <outlet property="mapView" destination="utr-TF-sQu" id="h0n-p5-Er0"/>
+                        <outlet property="navBar" destination="R7Y-Gz-Rvg" id="5eZ-4E-i9y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jYR-Ph-kml" userLabel="First Responder" sceneMemberID="firstResponder"/>
