@@ -41,6 +41,9 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Map" id="mOI-FS-AaM"/>
+                    <connections>
+                        <outlet property="mapView" destination="MPe-8Z-Scu" id="azJ-Ii-ak5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>

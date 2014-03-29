@@ -11,6 +11,7 @@
 #import "PKDetailViewController.h"
 #import "PKTourViewController.h"
 #import "PKCityCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface PKMasterViewController ()
 - (void)configureCell:(PKCityCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -22,6 +23,7 @@
 {
     self.clearsSelectionOnViewWillAppear = NO;
     self.preferredContentSize = CGSizeMake(320.0, 600.0);
+    [self fetchTours];
     [super awakeFromNib];
 }
 
@@ -31,8 +33,6 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (PKDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
@@ -42,7 +42,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)insertNewObject:(id)sender
+/*- (void)insertNewObject:(id)sender
 {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
@@ -60,7 +60,7 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
-}
+}*/
 
 #pragma mark - Navigation
 
@@ -86,7 +86,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    if (!self.tours) {
+        return 0;
+    } else {
+        return [self.tours count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -102,7 +106,7 @@
     return YES;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+/*- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
@@ -116,7 +120,7 @@
             abort();
         }
     }   
-}
+}*/
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -129,9 +133,32 @@
     
 }
 
+#pragma mark - JSON Fetching
+
+- (void) fetchTours {
+    NSString *apiURL = @"http://localhost:3000/tours.json";
+    UIAlertView *serverAlert = [[UIAlertView alloc] initWithTitle:@"Server hiccup" message:@"Give it another chance?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Try again", nil];
+    
+    NSURL *toursAPI = [NSURL URLWithString:apiURL];
+    NSURLRequest *toursRequest = [NSURLRequest requestWithURL:toursAPI];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:toursRequest];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.tours = (NSArray *)responseObject;
+        [self.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error retrieving data: %@", error);
+        [serverAlert show];
+    }];
+    
+    [operation start];
+}
+
 #pragma mark - Fetched results controller
 
-- (NSFetchedResultsController *)fetchedResultsController
+/*- (NSFetchedResultsController *)fetchedResultsController
 {
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
@@ -218,6 +245,8 @@
     [self.tableView endUpdates];
 }
 
+ */
+
 /*
 // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed. 
  
@@ -231,10 +260,33 @@
 - (void)configureCell:(PKCityCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     //NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.nameLabel.text = @"PORTLAND";
-    cell.stateLabel.text = @"OREGON";
-    cell.backgroundView.image = [UIImage imageNamed:@"portland.png"];
+    NSDictionary *tour = [self.tours objectAtIndex:indexPath.row];
+    
+    cell.nameLabel.text = [[tour valueForKey:@"name"] uppercaseString];
+    cell.stateLabel.text = [[tour valueForKey:@"state"] uppercaseString];
+    
     [cell setClipsToBounds:YES];
+    
+    NSURL *url = [NSURL URLWithString:[tour valueForKey:@"background"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    UIImage *placeholder = [UIImage imageNamed:@"portland"];
+    __weak PKCityCell *weakCell = cell;
+    
+    [cell.backgroundView setImageWithURLRequest:request placeholderImage:placeholder success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+        weakCell.backgroundView.image = image;
+        [weakCell setNeedsLayout];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+        NSLog(@"error getting background");
+    }];
+    
+    
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+    [annotation setCoordinate:CLLocationCoordinate2DMake(
+                                                          [(NSNumber *)[tour valueForKey:@"latitude"] doubleValue],
+                                                          [(NSNumber *)[tour valueForKey:@"longitude"] doubleValue]
+                                                          )];
+    
+    [self.detailViewController.mapView addAnnotation:annotation];
 }
 
 @end

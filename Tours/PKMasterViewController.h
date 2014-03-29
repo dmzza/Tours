@@ -7,16 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AFNetworking/AFNetworking.h>
 
 @class PKDetailViewController;
 
 #import <CoreData/CoreData.h>
 
-@interface PKMasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface PKMasterViewController : UITableViewController //<NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) PKDetailViewController *detailViewController;
 
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+//@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+@property (strong, nonatomic) NSArray *tours;
 
 @end
