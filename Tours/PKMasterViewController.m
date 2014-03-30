@@ -30,8 +30,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     self.detailViewController = (PKDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
@@ -274,6 +272,7 @@
     
     [cell.backgroundView setImageWithURLRequest:request placeholderImage:placeholder success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
         weakCell.backgroundView.image = image;
+        weakCell.backgroundView.contentMode = UIViewContentModeScaleAspectFit;
         [weakCell setNeedsLayout];
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
         NSLog(@"error getting background");
