@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F91FC790-2B5C-438F-A3A4-C34FB40FE1B4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Tours</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>446873C1-01F8-43AD-ABE0-7DDD8161914B</key>
+		<string>https://github.com/dmzza/Tours.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Tours.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>446873C1-01F8-43AD-ABE0-7DDD8161914B</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/dmzza/Tours.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>446873C1-01F8-43AD-ABE0-7DDD8161914B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>446873C1-01F8-43AD-ABE0-7DDD8161914B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Tours</string>
+		</dict>
+	</array>
+</dict>
+</plist>
